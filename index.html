@@ -1,28 +1,50 @@
+<!-- Thie page is the seach main page -->
 <!DOCTYPE html>
 <html>
 <head>
 <title>Twitter Search Enginee 1.0</title>
-<meta name="Author" content="Bharani M">
-<meta name="Description" content="A kickass CSS3 Dropdown menu">
+<meta name="Author" content="Fei Yi">
+<meta name="Description" content="A tweet enginee search front end part">
 <link rel="stylesheet" href="styles.css">
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
 <!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+<script src ="./node_modules/angular/angular.js">
+</script>
 
 </head>
-<body>
+<body ng-app="goodperson" >
+
+<script>
+angular.module("goodperson",[])
+	.controller("heiheihei",function($scope,$http){
+		$scope.goto=function ();
+    var hre = 'post1.html?msg=' + $scope.search;
+    location.href = hre;
+    }
+
+});
+
+      
+</script>
+
 <section id="wrapper">
 	<h1>Twitter Search Enginee 1.0</h1>
 	<div id="main">
-		<form>
-			<input type="text" id="search">
-			<input type="submit" class="solid" value="Search by Hadoop">
+		<ul id="heiheihei" ng-controller="heiheihei">
+		<form name="MyForm" method="post">
+			<input type="text" id="search" >
+			<input type="submit" class="solid" value="Search by Hadoop" ng-click="goto()" >
 
-			<input type="text" id="search2">
+		</form>
+		<form name="MyForm" action="post2.html"  method="post">
+                        <input type="text" id="search2">
 			<input type="submit" class="solid" value="Search by Lucene">
 		</form>
+		</ul>
+
 	</div>
 	<!--main-->
 	
@@ -35,3 +57,4 @@
 
 </body>
 </html>
+
