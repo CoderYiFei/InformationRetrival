@@ -1,0 +1,31 @@
+<!--This page is the page that go to the lucence indexing or hadoop indexing -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles2.css">
+<meta charset="utf-8">
+<script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+<body>
+ 
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+ 
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+ 
+</div>
+ 
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("/home/joneth/Downloads/Customers_JSON.php")
+    .then(function (result) {
+        $scope.names = result.data.records;
+    });
+});
+</script>
+
